@@ -1,0 +1,28 @@
+package dev.ryuuwiz.project_uas.service;
+
+import java.io.IOException;
+import java.util.Base64;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import dev.ryuuwiz.project_uas.dto.SiswaDto;
+import dev.ryuuwiz.project_uas.dto.SiswaDtoMapper;
+import dev.ryuuwiz.project_uas.repository.SiswaRepo;
+
+@Service
+public class SiswaService {
+
+  @Autowired
+  private SiswaRepo siswaRepo;
+
+  public void simpanSiswa(SiswaDto siswaDto, MultipartFile file) {
+    try {
+      siswaDto.setFoto(Base64.getEncoder().encodeToString(file.getBytes()));
+      siswaRepo.save(SiswaDtoMapper.toSiswa(siswaDto));
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+}

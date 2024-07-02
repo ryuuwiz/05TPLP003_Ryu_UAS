@@ -21,22 +21,28 @@ public class WebController {
     return "siswa";
   }
 
-  @GetMapping("mapel")
-  public String MataPelajaran(HttpSession session) {
-    session.setAttribute("url", "mapel");
-    return "";
+  @GetMapping("siswa/simpan")
+  public String TambahSiswa(HttpSession session) {
+    session.setAttribute("url", "siswa");
+    return "tambah-siswa";
   }
 
-  @GetMapping("silabus")
-  public String Silabus(HttpSession session) {
-    session.setAttribute("url", "silabus");
-    return "";
-  }
+  // @GetMapping("mapel")
+  // public String MataPelajaran(HttpSession session) {
+  // session.setAttribute("url", "mapel");
+  // return "";
+  // }
 
-  @GetMapping("bahanAjar")
-  public String BahanAjar(HttpSession session) {
-    session.setAttribute("url", "bahanAjar");
-    return "";
-  }
+  // @GetMapping("silabus")
+  // public String Silabus(HttpSession session) {
+  // session.setAttribute("url", "silabus");
+  // return "";
+  // }
+
+  // @GetMapping("bahanAjar")
+  // public String BahanAjar(HttpSession session) {
+  // session.setAttribute("url", "bahanAjar");
+  // return "";
+  // }
 
 }

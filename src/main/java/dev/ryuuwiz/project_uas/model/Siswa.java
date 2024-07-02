@@ -1,9 +1,10 @@
 package dev.ryuuwiz.project_uas.model;
 
 import jakarta.persistence.*;
-import java.util.Date;
+import lombok.Data;
 
 @Entity
+@Data
 public class Siswa {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,8 +15,7 @@ public class Siswa {
 
   private String nama_lengkap;
 
-  @Temporal(TemporalType.DATE)
-  private Date tanggal_lahir;
+  private String tanggal_lahir;
 
   private String alamat;
 
@@ -24,6 +24,7 @@ public class Siswa {
   private String telp;
 
   @Lob
+  @Column(columnDefinition = "MEDIUMBLOB")
   private String foto;
 
   private Boolean status;
