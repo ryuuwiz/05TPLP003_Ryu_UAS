@@ -1,0 +1,13 @@
+package dev.ryuuwiz.project_uas;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class ProjectUasApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(ProjectUasApplication.class, args);
+	}
+
+}
