@@ -9,8 +9,7 @@ public class Siswa {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
 
-  private Integer id_ta;
-
+  @Column(unique = true)
   private String nisn;
 
   private String nama_lengkap;

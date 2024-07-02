@@ -18,7 +18,7 @@ public class WebController {
   @GetMapping("siswa")
   public String Siswa(HttpSession session) {
     session.setAttribute("url", "siswa");
-    return "";
+    return "siswa";
   }
 
   @GetMapping("mapel")
