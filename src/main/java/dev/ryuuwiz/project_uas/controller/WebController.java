@@ -1,14 +1,21 @@
 package dev.ryuuwiz.project_uas.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import dev.ryuuwiz.project_uas.service.SiswaService;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/")
 public class WebController {
+
+  @Autowired
+  private SiswaService siswaService;
+
   @GetMapping
   public String Home(HttpSession session) {
     session.setAttribute("url", "home");
@@ -16,7 +23,8 @@ public class WebController {
   }
 
   @GetMapping("siswa")
-  public String Siswa(HttpSession session) {
+  public String Siswa(HttpSession session, Model model) {
+    model.addAttribute("allSiswa", siswaService.lihatSiswa());
     session.setAttribute("url", "siswa");
     return "siswa";
   }

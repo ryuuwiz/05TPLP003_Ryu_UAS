@@ -2,6 +2,8 @@ package dev.ryuuwiz.project_uas.service;
 
 import java.io.IOException;
 import java.util.Base64;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,5 +26,9 @@ public class SiswaService {
     } catch (IOException e) {
       e.printStackTrace();
     }
+  }
+
+  public List<SiswaDto> lihatSiswa() {
+    return siswaRepo.findAll().stream().map(SiswaDtoMapper::toSiswaDto).collect(Collectors.toList());
   }
 }
