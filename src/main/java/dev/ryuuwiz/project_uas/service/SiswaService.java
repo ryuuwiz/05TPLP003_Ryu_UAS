@@ -31,4 +31,8 @@ public class SiswaService {
   public List<SiswaDto> lihatSiswa() {
     return siswaRepo.findAll().stream().map(SiswaDtoMapper::toSiswaDto).collect(Collectors.toList());
   }
+
+  public void hapusSiswa(Integer id) {
+    siswaRepo.deleteById(id);
+  }
 }
