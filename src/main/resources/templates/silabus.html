@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:replace="fragments/header.html::header"></head>
+
+<body>
+  <nav th:replace="fragments/navbar.html::navbar"></nav>
+  <div class="container mt-5">
+    <h1 class="mb-4 mx-2">Data Silabus</h1>
+    <a th:href="@{/silabus/simpan}" class="btn btn-primary mx-3 mt-2 mb-4">Tambah Silabus</a>
+    <div class="container">
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered align-middle text-center">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nama Mapel</th>
+              <th scope="col">Judul</th>
+              <th scope="col">Deskripsi</th>
+              <th scope="col">Tujuan</th>
+              <th scope="col">Materi</th>
+              <th scope="col">Metode</th>
+              <th scope="col">Evaluasi</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each="silabus, i : ${allSilabus}">
+              <th scope="row" th:text="${i.index+1}"></th>
+              <td th:text="${silabus.mataPelajaran.nama_mapel}"></td>
+              <td th:text="${silabus.judul}"></td>
+              <td th:text="${silabus.deskripsi}"></td>
+              <td th:text="${silabus.tujuan}"></td>
+              <td th:text="${silabus.materi}"></td>
+              <td th:text="${silabus.metode}"></td>
+              <td th:text="${silabus.evaluasi}"></td>
+              <td>
+                <a th:href="@{/silabus/ubah/{id}(id=${silabus.id})}" class="btn btn-info">Edit</a>
+                <a th:href="@{/silabus/hapus/{id}(id=${silabus.id})}" class="btn btn-danger">Delete</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

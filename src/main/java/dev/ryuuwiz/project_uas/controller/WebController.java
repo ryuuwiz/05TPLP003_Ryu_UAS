@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import dev.ryuuwiz.project_uas.service.MataPelajaranService;
+import dev.ryuuwiz.project_uas.service.SilabusService;
 import dev.ryuuwiz.project_uas.service.SiswaService;
 import jakarta.servlet.http.HttpSession;
 
@@ -19,6 +20,9 @@ public class WebController {
 
   @Autowired
   private MataPelajaranService mataPelajaranService;
+
+  @Autowired
+  private SilabusService silabusService;
 
   @GetMapping
   public String Home(HttpSession session) {
@@ -52,11 +56,19 @@ public class WebController {
     return "tambah-mapel";
   }
 
-  // @GetMapping("silabus")
-  // public String Silabus(HttpSession session) {
-  // session.setAttribute("url", "silabus");
-  // return "";
-  // }
+  @GetMapping("silabus")
+  public String Silabus(HttpSession session, Model model) {
+    session.setAttribute("url", "silabus");
+    model.addAttribute("allSilabus", silabusService.lihatSilabus());
+    return "silabus";
+  }
+
+  @GetMapping("silabus/simpan")
+  public String TambahSilabus(HttpSession session, Model model) {
+    session.setAttribute("url", "silabus");
+    model.addAttribute("allMapel", mataPelajaranService.lihatMapel());
+    return "tambah-silabus";
+  }
 
   // @GetMapping("bahanAjar")
   // public String BahanAjar(HttpSession session) {

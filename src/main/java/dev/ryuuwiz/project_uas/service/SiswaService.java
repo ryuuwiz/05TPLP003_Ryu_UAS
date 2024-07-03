@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import dev.ryuuwiz.project_uas.dto.SiswaDto;
-import dev.ryuuwiz.project_uas.dto.SiswaDtoMapper;
+import dev.ryuuwiz.project_uas.dto.SiswaMapper;
 import dev.ryuuwiz.project_uas.repository.SiswaRepo;
 
 @Service
@@ -22,14 +22,14 @@ public class SiswaService {
   public void simpanSiswa(SiswaDto siswaDto, MultipartFile file) {
     try {
       siswaDto.setFoto(Base64.getEncoder().encodeToString(file.getBytes()));
-      siswaRepo.save(SiswaDtoMapper.toSiswa(siswaDto));
+      siswaRepo.save(SiswaMapper.toSiswa(siswaDto));
     } catch (IOException e) {
       e.printStackTrace();
     }
   }
 
   public List<SiswaDto> lihatSiswa() {
-    return siswaRepo.findAll().stream().map(SiswaDtoMapper::toSiswaDto).collect(Collectors.toList());
+    return siswaRepo.findAll().stream().map(SiswaMapper::toSiswaDto).collect(Collectors.toList());
   }
 
   public void hapusSiswa(Integer id) {
