@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:replace="fragments/header.html::header"></head>
+
+<body>
+  <div class="container mt-5">
+    <h1>Tambah Bahan Ajar</h1>
+    <form th:action="@{/bahanAjar/simpan}" th:object="${bahanAjarForm}" method="post" class="p-4"
+      enctype="multipart/form-data">
+      <div class="mb-3">
+        <label for="mapel" class="form-label">Pilih Mapel</label>
+        <select id="mapel" name="id_mapel" class="form-select">
+          <option selected>Pilih Mata Pelajaran</option>
+          <option th:each="mapel : ${allMapel}" th:value="${mapel.id}" th:text="${mapel.nama_mapel}">
+          </option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="judul" class="form-label">Judul</label>
+        <input type="text" class="form-control" id="judul" name="judul">
+      </div>
+      <div class="mb-3">
+        <label for="deskripsi" class="form-label">Deskripsi</label>
+        <input type="text" class="form-control" id="deskripsi" name="deskripsi">
+      </div>
+      <div class="mb-3">
+        <label for="tipe" class="form-label">Tipe</label>
+        <input type="text" class="form-control" id="tipe" name="tipe">
+      </div>
+      <div class="mb-3">
+        <label for="file" class="form-label">File</label>
+        <input type="file" class="form-control" accept="application/pdf" id="file" name="file">
+      </div>
+      <div class="mb-3">
+        <a th:href="@{/bahanAjar}" class="btn btn-secondary me-2">Kembali</a>
+        <button type="submit" class="btn btn-primary my-3">Submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:replace="fragments/header.html::header"></head>
+
+<body>
+  <div class="container mt-5">
+    <h1>Tambah Mata Pelajaran</h1>
+    <form th:action="@{/mapel/simpan}" th:object="${mataPelajaranDto}" method="post" class="p-4">
+      <div class="mb-3">
+        <label for="kode_mapel" class="form-label">Kode Mapel</label>
+        <input type="text" class="form-control" id="kode_mapel" name="kode_mapel">
+      </div>
+      <div class="mb-3">
+        <label for="nama_mapel" class="form-label">Nama Mapel</label>
+        <input type="text" class="form-control" id="nama_mapel" name="nama_mapel">
+      </div>
+      <div class="mb-3">
+        <label for="tingkat" class="form-label">Tingkat</label>
+        <input type="text" class="form-control" id="tingkat" name="tingkat">
+      </div>
+      <div class="mb-3">
+        <a th:href="@{/mapel}" class="btn btn-secondary me-2">Kembali</a>
+        <button type="submit" class="btn btn-primary my-3">Submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>

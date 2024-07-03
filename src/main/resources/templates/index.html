@@ -1,27 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home</title>
-</head>
+<head th:replace="fragments/header.html::header"></head>
 
 <body>
-  <div>
-    <form th:action="@{/images}" method="post" enctype="multipart/form-data">
-      <input type="file" name="file" accept="image/*" />
-      <button type="submit">Upload Image</button>
-    </form>
-  </div>
-  <div>
-    <table>
-      <tr th:each="image : ${images}">
-        <td>
-          <img th:src="'data:image/jpg;base64,' + ${image.data}">
-        </td>
-      </tr>
-    </table>
+  <nav th:replace="fragments/navbar.html::navbar"></nav>
+
+  <div class="container mt-5">
+    <div class="text-center">
+      <img th:src="@{learning.svg}" class="img-fluid my-3" width="40%" alt="Learning">
+      <p class="my-5">
+        Sistem Informasi Sekolah (SIS) dapat membantu sekolah dalam mengelola data dan informasi dengan lebih efektif
+        dan efisien, serta memudahkan pengambilan keputusan yang lebih baik.
+      </p>
+    </div>
   </div>
 </body>
 
