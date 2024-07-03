@@ -23,7 +23,6 @@ public class SiswaController {
   @PostMapping("simpan")
   public String simpan(@RequestParam("file") MultipartFile file, Model model, SiswaDto siswaDto) {
     siswaService.simpanSiswa(siswaDto, file);
-    model.addAttribute("message", "Tambah data siswa berhasil!");
     return "redirect:/siswa";
   }
 

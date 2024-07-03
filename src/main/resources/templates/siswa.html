@@ -40,7 +40,7 @@
               </td>
               <td th:text="${{siswa.status} ? 'Aktif' : 'Tidak Aktif'}"></td>
               <td>
-                <a href="" class="btn btn-info">Edit</a>
+                <a th:href="@{/siswa/ubah/{id}(id=${siswa.id})}" class="btn btn-info">Edit</a>
                 <a th:href="@{/siswa/hapus/{id}(id=${siswa.id})}" class="btn btn-danger">Delete</a>
               </td>
             </tr>
