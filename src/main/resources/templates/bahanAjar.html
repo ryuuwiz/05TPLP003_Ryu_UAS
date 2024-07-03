@@ -23,16 +23,21 @@
             </tr>
           </thead>
           <tbody>
-            <!-- <tr th:each="mapel, i : ${allMapel}">
+            <tr th:each="bahanAjar, i : ${allAjar}">
               <th scope="row" th:text="${i.index+1}"></th>
-              <td th:text="${mapel.kode_mapel}"></td>
-              <td th:text="${mapel.nama_mapel}"></td>
-              <td th:text="${mapel.tingkat}"></td>
+              <td th:text="${bahanAjar.mataPelajaran.nama_mapel}"></td>
+              <td th:text="${bahanAjar.judul}"></td>
+              <td th:text="${bahanAjar.deskripsi}"></td>
+              <td th:text="${bahanAjar.tipe}"></td>
               <td>
-                <a th:href="@{/mapel/ubah/{id}(id=${mapel.id})}" class="btn btn-info">Edit</a>
-                <a th:href="@{/mapel/hapus/{id}(id=${mapel.id})}" class="btn btn-danger">Delete</a>
+                <a th:href="'data:application/pdf;base64,' + ${bahanAjar.file}" download="file.pdf"
+                  class="btn btn-secondary">Download</a>
               </td>
-            </tr> -->
+              <td>
+                <a th:href="@{/bahanAjar/ubah/{id}(id=${bahanAjar.id})}" class="btn btn-info">Edit</a>
+                <a th:href="@{/bahanAjar/hapus/{id}(id=${bahanAjar.id})}" class="btn btn-danger">Delete</a>
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
