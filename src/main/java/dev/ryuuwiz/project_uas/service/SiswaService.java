@@ -22,10 +22,10 @@ public class SiswaService {
   public void simpanSiswa(SiswaDto siswaDto, MultipartFile file) {
     try {
       siswaDto.setFoto(Base64.getEncoder().encodeToString(file.getBytes()));
-      siswaRepo.save(SiswaMapper.toSiswa(siswaDto));
     } catch (IOException e) {
       e.printStackTrace();
     }
+    siswaRepo.save(SiswaMapper.toSiswa(siswaDto));
   }
 
   public List<SiswaDto> lihatSiswa() {

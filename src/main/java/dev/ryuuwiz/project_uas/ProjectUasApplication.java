@@ -24,12 +24,12 @@ public class ProjectUasApplication {
 		MataPelajaranDto seedMapel1 = new MataPelajaranDto();
 		seedMapel1.setKode_mapel("SAINS01");
 		seedMapel1.setNama_mapel("IPA");
-		seedMapel1.setTingkat("X");
+		seedMapel1.setTingkat("1");
 
 		MataPelajaranDto seedMapel2 = new MataPelajaranDto();
 		seedMapel2.setKode_mapel("SAINS02");
 		seedMapel2.setNama_mapel("BIOLOGI");
-		seedMapel2.setTingkat("X");
+		seedMapel2.setTingkat("2");
 
 		return (args) -> {
 			mataPelajaranService.simpanMapel(seedMapel1);

@@ -70,10 +70,17 @@ public class WebController {
     return "tambah-silabus";
   }
 
-  // @GetMapping("bahanAjar")
-  // public String BahanAjar(HttpSession session) {
-  // session.setAttribute("url", "bahanAjar");
-  // return "";
-  // }
+  @GetMapping("bahanAjar")
+  public String BahanAjar(HttpSession session) {
+    session.setAttribute("url", "bahanAjar");
+    return "bahanAjar";
+  }
+
+  @GetMapping("bahanAjar/simpan")
+  public String TambahBahanAjar(HttpSession session, Model model) {
+    session.setAttribute("url", "bahanAjar");
+    model.addAttribute("allMapel", mataPelajaranService.lihatMapel());
+    return "tambah-ajar";
+  }
 
 }
